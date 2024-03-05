@@ -10,7 +10,8 @@ Over the orignal spec added:
 - Input validation - the user will continue to be prompted if they enter a string that can't be cast into an int or an int outside of the grid limits.
 - Scores.
 - Presistent high scores across playthroughs (saved in a simple .txt file and is parsed every time the game opens).
-- Used objects to try to keep the code clean as possible. A static object to handle saving scores, shield objects and a spell object. 
+- Used objects to try to keep the code clean as possible. A static object to handle saving scores, shield objects and a spell object.
+- Added a graph that shows where the spell will hit on the grid for some visual feedback. 
 
 
 My high score is a mere 9.
