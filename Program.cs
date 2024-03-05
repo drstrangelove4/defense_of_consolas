@@ -1,4 +1,4 @@
-﻿
+
 // Initial game setup
 
 const double MULTIPLIER = 0.8;
@@ -11,14 +11,14 @@ int spells_stopped = 0;
 
 
 // Display the intro text to the user along with the current high score. 
-int high_score = Data_handler.load_high_score();
+int high_score = Data_handler.Load_high_score();
 Console.WriteLine($"Welcome to the defense of Consolas! Your current highscore is {high_score}\n");
 
 // Create the spell object needed for the game
 Spell spell = new();
 
 // The amount of time the user gets to raise their shields (1000ths of a second)
-int time_to_shield = 30_000;
+int time_to_shield = 60_000;
 
 // ----------------------------------------------------------------------------------------------------------------------
 
@@ -67,7 +67,7 @@ while (playing)
     else
     {
         // Trigger game over logic.
-        Console.WriteLine("The spell touched down! Consolas is no more.", Console.ForegroundColor = ConsoleColor.Red);
+        Console.WriteLine("\nThe spell touched down! Consolas is no more.", Console.ForegroundColor = ConsoleColor.Red);
         Console.WriteLine($"You stopped {spells_stopped} blasts.", Console.ForegroundColor = ConsoleColor.White);
         Console.WriteLine("GAME OVER!");
 
@@ -75,7 +75,7 @@ while (playing)
         if (spells_stopped > high_score)
         {
             Console.WriteLine($"\nNEW HIGH SCORE: {spells_stopped}. WAS: {high_score}. WELL DONE", Console.ForegroundColor = ConsoleColor.Green);
-            Data_handler.write_highscore(spells_stopped);
+            Data_handler.Write_highscore(spells_stopped);
         }
 
         // Break the loop
@@ -152,7 +152,7 @@ int value_conversion()
             if (value < MIN_VALUE || value > MAX_VALUE)
             {
                 // Prompt the user for a valid input. 
-                Console.WriteLine("Invalid input! Enter a number between 0 to 10.");
+                Console.WriteLine("Invalid input! Enter a number between 0 to 10:");
             }
             else
             {
@@ -160,7 +160,7 @@ int value_conversion()
                 taking_input = false;
             }
         }
-        catch (Exception e)
+        catch (Exception)
         {
             // Prompt the user for a valid input in the case that we cannot typecast their input from a string to int.
             Console.WriteLine($"Invalid input! Enter a number between 0 to 10.");
