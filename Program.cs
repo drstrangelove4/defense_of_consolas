@@ -38,7 +38,8 @@ while (playing)
         Console.ForegroundColor = ConsoleColor.White);
     Console.WriteLine($"You have {time_to_shield/1000} seconds to raise the shield!");
 
-    // Create shield objects
+    // Create shield objects. If the user doesn't create enough the program will automatically trigger the game over because the spell will always hit
+    // without 4 valid shields.
     List<Shield> shield_list = create_shield(time_to_shield);    
 
     // Check to see the shields are placed in the correct positions
