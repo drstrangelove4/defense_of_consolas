@@ -1,5 +1,8 @@
 class Graph
 {
+    const int START_ROWS = 10;
+    const int END_ROWS = 2;
+    const int ROW_SIZE = 11;
 
     List<List<string>> graph = [];    
 
@@ -14,7 +17,7 @@ class Graph
         graph.Clear();
 
         // Populate the graph
-        for (int i = 10; i > -1; i--)           
+        for (int i = START_ROWS; i > -1; i--)           
         {
             // Create the initial list for each row
             List<string> row = [];
@@ -30,7 +33,7 @@ class Graph
             }
 
             // Add the "Cells" to the row
-            for (int j = 0; j < 11; j++)
+            for (int j = 0; j < START_ROWS; j++)
             {
                 if (i == y && j == x)
                 {
@@ -46,13 +49,13 @@ class Graph
         }
 
         // Add the final 2 rows to the graph 
-        for (int j = 0; j < 2; j++)
+        for (int j = 0; j < END_ROWS; j++)
         {
             // Create the list which will hold the "cells"
             List<string> row = ["  "];
 
             // Add a character depending on the row we are on.
-            for (int i = 0; i < 11; i++)
+            for (int i = 0; i < ROW_SIZE; i++)
             {
                 if (j == 0)
                 {
