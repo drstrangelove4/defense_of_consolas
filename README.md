@@ -8,6 +8,9 @@ Over the orignal spec added:
 - Time for user to complete placing of their shields
 - Difficulty increase through reduction of time upon each success.
 - Input validation - the user will continue to be prompted if they enter a string that can't be cast into an int or an int outside of the grid limits.
-- Scores
+- Scores.
 - Presistent high scores across playthroughs (saved in a simple .txt file and is parsed every time the game opens).
 - Used objects to try to keep the code clean as possible. A static object to handle saving scores, shield objects and a spell object. 
+
+
+My high score is a mere 9.
