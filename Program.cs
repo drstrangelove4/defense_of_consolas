@@ -16,6 +16,7 @@ Console.WriteLine($"Welcome to the defense of Consolas! Your current highscore i
 
 // Create the spell object needed for the game
 Spell spell = new();
+Graph graph = new();
 
 // The amount of time the user gets to raise their shields (1000ths of a second)
 int time_to_shield = 60_000;
@@ -32,14 +33,17 @@ while (playing)
     spell.Generate_new_coordinates();
     var blockers = spell.Generate_blocker_coordinates();
 
+    // Populate a graph and print it. We need spell coordinates in order to print the spell hit location on the graph.
+    graph.Populate(spell.X_coordinate, spell.Y_coordinate);
+    graph.Print_graph();
+
     // Instructions.
     Console.WriteLine($"The enemy has tageted X: {spell.X_coordinate} Y: {spell.Y_coordinate}!!", Console.ForegroundColor = ConsoleColor.Red);
-    Console.WriteLine("You have 4 shields to create a square around the impact location to stop Consolas from getting destroyed!\n", 
+    Console.WriteLine("\nYou have 4 shields to create a square around the impact location to stop Consolas from getting destroyed!\n", 
         Console.ForegroundColor = ConsoleColor.White);
     Console.WriteLine($"You have {time_to_shield/1000} seconds to raise the shield!");
 
-    // Create shield objects. If the user doesn't create enough the program will automatically trigger the game over because the spell will always hit
-    // without 4 valid shields.
+    // Create shield objects
     List<Shield> shield_list = create_shield(time_to_shield);    
 
     // Check to see the shields are placed in the correct positions
@@ -94,6 +98,7 @@ List<Shield> create_shield(int time)
     // List to be returned
     List<Shield> shield = [];
 
+
     // Use an lambda expression to give the task x seconds to complete.
     var user_input_task = Task.Run(() =>
     {
@@ -110,7 +115,7 @@ List<Shield> create_shield(int time)
             int y_value = value_conversion();
             Console.WriteLine();
 
-            // Create the shield object using valid inputs, add it to a list of shield objects.
+            // Create an add the shield object using valid inputs
             Shield new_shield = new(x_value, y_value);
             shield.Add(new_shield);
 
