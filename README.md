@@ -11,7 +11,7 @@ Over the orignal spec added:
 - Scores.
 - Presistent high scores across playthroughs (saved in a simple .txt file and is parsed every time the game opens).
 - Used objects to try to keep the code clean as possible. A static object to handle saving scores, shield objects and a spell object.
-- Added a graph that shows where the spell will hit on the grid for some visual feedback. 
-
-
+- Added a graph that shows where the spell will hit on the grid for some visual feedback.
+- Unlike my previous projects, the save/load functions should work on all platforms.
+- 
 My high score is a mere 9.
