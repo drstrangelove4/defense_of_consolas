@@ -93,7 +93,6 @@ List<Shield> create_shield(int time)
     // List to be returned
     List<Shield> shield = [];
 
-
     // Use an lambda expression to give the task x seconds to complete.
     var user_input_task = Task.Run(() =>
     {
@@ -110,7 +109,7 @@ List<Shield> create_shield(int time)
             int y_value = value_conversion();
             Console.WriteLine();
 
-            // Create an add the shield object using valid inputs
+            // Create the shield object using valid inputs, add it to a list of shield objects.
             Shield new_shield = new(x_value, y_value);
             shield.Add(new_shield);
 
