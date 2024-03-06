@@ -14,3 +14,5 @@ Over the orignal spec added:
 - Added a graph that shows where the spell will hit on the grid for some visual feedback.
 
  Unlike my previous projects, the save/load functions should work on all platforms. My high score is a mere 9.
+
+I probably need to refactor the graph object to remove the requirement for an X to be shown. This could easily be a method call that edits the list entry after graph population. 
